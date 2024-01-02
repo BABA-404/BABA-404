@@ -48,75 +48,36 @@ for agent in range(10000):
         ugen.append(fullagnt)
   
  
-def main_apv():
- 
-    imt="000Y=="
- 
-    ak="BABA"
- 
-    os.system('clear')
- 
-    print(logo)
- 
-    try:
- 
-        key1=open('/data/data/com.termux/files/usr/bin/.akkkk-cov', 'r').read()
- 
-    except IOError:
- 
-        os.system("clear")
- 
-        print(logo)
-        print ("YOUR TOKEN IS NOT APROVAL")     
-        print ("xdg-open")
- 
-        myid=uuid.uuid4().hex[:10].upper()
- 
-        print ("  YOUR KEY : "+ak+myid+imt)
- 
-        print ("•───────────────────────────────────────•")
- 
-        kok=open('/data/data/com.termux/files/usr/bin/.akkkk-cov', 'w')
- 
-        kok.write(myid+imt)
- 
-        kok.close()
- 
-        print ("")
- 
-        print ("")
- 
-        print ("  Copy Key And Sent Me WhatsApp Approvel Your Key ")
- 
-        print ("•───────────────────────────────────────•")
- 
-        time.sleep(3.5)
- 
-        tks = 'Dear%20Admin,%20Please%20Approved%20My%20Token%20To%20Premium%20% 20% 20%20%20My%20%20Key%20%20:%20'+ak+''+myid+''+imt
- 
-        os.system('am start https://www.facebook.com/profile.php?id=100090047148832')
- 
-        
- 
-    r1=requests.get("https://raw.githubusercontent.com/BABA-404/BABA-404/main/Ali.txt").text
- 
-    if key1 in r1:
- 
-        menu()
- 
-    else:
- 
-        os.system("clear")
- 
-        print(logo)
-        print ("    \033[1;32mYOUR KEY : "+ak+key1)     
-        time.sleep(3.5)
- 
-        tks = 'Dear%20Admin,%20Please%20Apporved%20My%20Key%20To%20Premium✓✓%20%20%20%20%20My%20%20Key%20%20:%20'+ak+''+key1
- 
-        os.system('am start https://www.facebook.com/profile.php?id=100090047148832')        
-        
+def approval():
+  os.system('clear')
+  print(logo)
+  uuid = str(os.geteuid()) + str(os.getlogin())
+  id = "-".join(uuid)
 
+  try:
+    httpCaht = requests.get('https://raw.githubusercontent.com/BABA-404/BABA-404/main/Ali.txt').text
+    if id in httpCaht:
+      print("\33[1;32mYOUR KEY IS APPROVED.")
+      msg = str(os.geteuid())
+      time.sleep(0.5)
+      menu()
+      pass
+    else:
+      print("YOUR KEY : "+id)
+      print('\33[1;37m----------------------------------------------')
+      print("\33[1;32mNOTE:")
+      print("\33[1;37m----------------------------------------------")
+      print("\33[1;37mTOOL IS PAID BUT YOU HAVE TO\nGET APPROVAL FIRST.")
+      print('\33[1;37m----------------------------------------------')
+      print ('IF U DONT WANT TO BUY PLS DONT PRESS ENTER')
+      input('IF U WANT TO BUY THEN PRESS ENTER ')
+      tks = ('Hello%20Sir%20!%20Please%20Approve%20My%20Token%20The%20Token%20Is%20:%20'+id);os.system('am start https://wa.me/+923269916436?text='+tks),approval()
+      time.sleep(1)
+      menu()
+  except:
+    sys.exit()
+
+approval()
 logo=("""\033[1;37m 
       888    d8P   \033[1;32m d88P \033[1;32m8888888b. \033[1;32mY88b\033[1;37m    888    d8P  
       888   d8P   \033[1;34m d88P  \033[1;32m888   Y88b \033[1;34mY88b  \033[1;37m 888   d8P   
